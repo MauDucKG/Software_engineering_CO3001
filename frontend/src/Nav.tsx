@@ -49,7 +49,7 @@ const Nav = (props: Props) => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Quản lý
+                  Manage
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -57,7 +57,7 @@ const Nav = (props: Props) => {
                       className="dropdown-item"
                       href="index.php?page=admin&controller=admin&action=index"
                     >
-                      Thành viên
+                      Admin
                     </a>
                   </li>
                   <li>
@@ -65,7 +65,7 @@ const Nav = (props: Props) => {
                       className="dropdown-item"
                       href="index.php?page=admin&controller=user&action=index"
                     >
-                      Khách hàng
+                      User
                     </a>
                   </li>
                   <li>
@@ -76,7 +76,7 @@ const Nav = (props: Props) => {
                       className="dropdown-item"
                       href="index.php?page=admin&controller=products&action=index"
                     >
-                      Sản phẩm
+                      Product
                     </a>
                   </li>
                   <li>
@@ -84,7 +84,7 @@ const Nav = (props: Props) => {
                       className="dropdown-item"
                       href="index.php?page=admin&controller=comments&action=index"
                     >
-                      Bình luận
+                      Comment
                     </a>
                   </li>
                   <li>
@@ -92,15 +92,7 @@ const Nav = (props: Props) => {
                       className="dropdown-item"
                       href="index.php?page=admin&controller=news&action=index"
                     >
-                      Bài viết
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="index.php?page=admin&controller=company&action=index"
-                    >
-                      Chi nhánh
+                      Blog
                     </a>
                   </li>
                 </ul>

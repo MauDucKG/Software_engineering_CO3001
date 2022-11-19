@@ -16,8 +16,8 @@ class App extends React.Component {
   private localData: EventSettingsModel = {
     dataSource: [
       {
-        EndTime: new Date(2022, 11, 16),
-        StartTime: new Date(2022, 11, 20),
+        EndTime: new Date(2019, 0, 11, 6, 30),
+        StartTime: new Date(2019, 0, 11, 4, 0)
       },
     ],
   };
@@ -45,7 +45,7 @@ class App extends React.Component {
             <ScheduleComponent
               currentView="Month"
               eventSettings={{ dataSource: this.remoteData }}
-              selectedDate={new Date(2022, 11, 16)}
+              selectedDate={new Date(2017, 5, 5)}
             >
               <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
             </ScheduleComponent>
