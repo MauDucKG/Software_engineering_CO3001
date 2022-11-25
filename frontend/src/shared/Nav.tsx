@@ -1,6 +1,5 @@
-import React from "react";
-import admin_logo from "./shared/img/admin_logo.png";
-import team_logo from "./shared/img/team_logo.png";
+import admin_logo from "./img/admin_logo.png";
+import team_logo from "./img/team_logo.png";
 
 type Props = {};
 
