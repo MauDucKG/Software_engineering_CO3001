@@ -1,9 +1,7 @@
 import admin_logo from "./img/admin_logo.png";
 import team_logo from "./img/team_logo.png";
 
-type Props = {};
-
-const Nav = (props: Props) => {
+const Nav = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light sticky-top shadow">
