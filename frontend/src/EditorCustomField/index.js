@@ -1,5 +1,7 @@
 import "./index.css";
 import * as React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { createElement, extend } from "@syncfusion/ej2-base";
 import {
   ScheduleComponent,
@@ -24,15 +26,24 @@ import { updateSampleSection } from "./sample-base";
  *  Schedule editor custom fields sample
  */
 function EditorCustomField() {
-  const dataSource = [];
+  var dataSource = {
+    eventsData: [],
+  };
+  useEffect(() => {
+    let a = axios.get("http://localhost:4000/task").then((event) => {
+      setdata(event.data.tasks);
+    });
+  }, []);
+
   React.useEffect(() => {
     updateSampleSection();
   }, []);
   let scheduleObj;
-  const data = extend([], dataSource.eventsData, null, true);
+  const [data, setdata] = useState(
+    extend([], dataSource.eventsData, null, true)
+  );
   function onPopupOpen(args) {
     if (args.type === "Editor") {
-      console.log(data);
       // Create required custom elements in initial time
       if (!args.element.querySelector(".custom-field-row")) {
         let row = createElement("div", { className: "custom-field-row" });
@@ -87,6 +98,15 @@ function EditorCustomField() {
   }
   function onEventRendered(args) {
     applyCategoryColor(args, scheduleObj.currentView);
+    // console.log(data[data.length - 1]);
+    console.log(args.data["_id"]);
+    if (args.data["_id"] === undefined) {
+      axios.post("http://localhost:4000/task", args.data).then(() => {
+        let a = axios.get("http://localhost:4000/task").then((event) => {
+          setdata(event.data.tasks);
+        });
+      });
+    }
   }
   const TypeData = [
     { OwnerText: "Collector", Id: 1, OwnerColor: "#ffaa00" },
@@ -115,7 +135,7 @@ function EditorCustomField() {
                 dataSource: data,
                 fields: {
                   subject: { title: "Subject Summary", name: "Subject" },
-                  location: { default: "Hồ Chí Minh"},
+                  location: { default: "Hồ Chí Minh" },
                   description: { title: "Comments", name: "Description" },
                 },
               }}
