@@ -2,6 +2,7 @@ const app = require("express")();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const taskRouter = require('./task/task.router')
+const userRouter = require('./user/login.router')
 const http = require("http").createServer(app);
 const cors = require("cors");
 
@@ -24,3 +25,4 @@ http.listen(4000, function () {
 
 app.use(cors());
 app.use('/task', taskRouter);
+app.use('/user', userRouter);
