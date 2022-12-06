@@ -63,14 +63,19 @@ function EditorCustomField() {
         row.appendChild(container);
         let dropDownList = new DropDownList({
           dataSource: [
-            { text: "Đức", value: "duc" },
-            { text: "Đức1", value: "duc1" },
+            { text: "Mậu Đức", value: "duc" },
+            { text: "Đăng Khoa", value: "khoa" },
+            { text: "Huy Quý", value: "quy" },
+            { text: "Đăng Minh", value: "minh" },
+            { text: "Vĩnh Toàn", value: "toan" },
+            { text: "Thiên Bảo", value: "bao" },
+            { text: "Đức Huy", value: "huy" },
           ],
           fields: { text: "text", value: "value" },
           value: args.data.EventType,
           floatLabelType: "Always",
           placeholder: "Employee",
-          value: "duc1",
+          value: "duc",
         });
         dropDownList.appendTo(inputEle);
         inputEle.setAttribute("name", "Employee");
@@ -82,8 +87,11 @@ function EditorCustomField() {
         row.appendChild(container);
         let dropDownList1 = new DropDownList({
           dataSource: [
-            { text: "Bách Khoa", value: "bachkhoa" },
-            { text: "Quốc Tế", value: "quocte" },
+            { text: "Trường Đại học Bách Khoa", value: "bachkhoa" },
+            { text: "Trường Đại học Quốc Tế", value: "quocte" },
+            { text: "Trường Đại học Nhân Văn", value: "nhanvan" },
+            { text: "Trường Đại học Tự Nhiên", value: "tunhien" },
+            { text: "Trường Đại học Công nghẹ Thông Tin", value: "cntt" },
           ],
           fields: { text: "text", value: "value" },
           value: args.data.EventType,
