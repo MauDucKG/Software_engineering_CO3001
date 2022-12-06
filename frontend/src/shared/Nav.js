@@ -105,7 +105,7 @@ const Nav = () => {
             </form>
           </div>
           <div className="nav-item">
-            <strong>DUC DEMO</strong>
+            <strong>{localStorage.getItem('user')}</strong>
           </div>
           <div className="">
             <div className="nav-item dropdown">

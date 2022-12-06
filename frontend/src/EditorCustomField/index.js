@@ -91,7 +91,7 @@ function EditorCustomField() {
             { text: "Trường Đại học Quốc Tế", value: "quocte" },
             { text: "Trường Đại học Nhân Văn", value: "nhanvan" },
             { text: "Trường Đại học Tự Nhiên", value: "tunhien" },
-            { text: "Trường Đại học Công nghẹ Thông Tin", value: "cntt" },
+            { text: "Trường Đại học Công nghệ Thông Tin", value: "cntt" },
           ],
           fields: { text: "text", value: "value" },
           value: args.data.EventType,
@@ -106,8 +106,6 @@ function EditorCustomField() {
   }
   function onEventRendered(args) {
     applyCategoryColor(args, scheduleObj.currentView);
-    // console.log(data[data.length - 1]);
-    console.log(args.data["_id"]);
     if (args.data["_id"] === undefined) {
       axios.post("http://localhost:4000/task", args.data).then(() => {
         let a = axios.get("http://localhost:4000/task").then((event) => {
@@ -123,7 +121,7 @@ function EditorCustomField() {
   return (
     <div>
       <Nav></Nav>
-      <hr />
+      <hr className="mb-4" />
       <div className="container-fluid row">
         <div>
           <p className="row">
@@ -176,7 +174,7 @@ function EditorCustomField() {
           </div>
         </div>
         <div className="col-3">
-          <h5>Message to</h5>
+          <h4 className="text-center mb-3">Message to</h4>
           <select className="form-select" id="validationCustom04" required>
             <option value="">Nguyễn Văn A</option>
             <option value="">Nguyễn Văn B</option>
