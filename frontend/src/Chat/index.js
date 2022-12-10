@@ -1,43 +1,62 @@
 import React from 'react'
 
 export default function Chat() {
+  
   function send() {
+    // Lua nguoi de chat
+    var choice = document.getElementById("choice").value;
+
     var message = document.getElementById("mess").value;
     document.getElementById("mess").value = "";
     // Send
-    var x = document.getElementById("isend");
-    x.className = "small p-2 mb-1 text-start text-white rounded-3 bg-primary";
-    document.getElementById("isend").innerHTML = message;
-    // Day
-   var today = new Date();
-   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-   var dateTime = time+' '+date;
+    if (choice != ""){
+        var x = document.getElementById("isend");
+        x.className = "small p-2 mb-1 text-start text-white rounded-3 bg-primary";
+        document.getElementById("isend").innerHTML = message;
+        // Day
+      var today = new Date();
+      var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = time+' '+date;
 
-   document.getElementById("date").innerHTML = dateTime;
-  
-   var y = document.getElementById("yousend");
-   if (message == "!task"){
-    y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
-    document.getElementById("yousend").innerHTML = "Hiện tại không có nhiệm vụ !";
-   }
-   else {
-    y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
-    document.getElementById("yousend").innerHTML = "!task: Xem số nhiệm vụ. <br> !MCP: Xem danh sách MCP. <br> !MCP[number]: Xem capacity.";
-    
-   }
-    var retoday = new Date();
-    var redate = retoday.getDate()+'/'+(retoday.getMonth()+1)+'/'+retoday.getFullYear();
-    var retime = retoday.getHours() + ":" + retoday.getMinutes() + ":" + retoday.getSeconds();
-    var redateTime = retime+' '+redate;
+      document.getElementById("date").innerHTML = dateTime;
+      
+      var y = document.getElementById("yousend");
+      if (message == "!task"){
+        y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
+        document.getElementById("yousend").innerHTML = "user";
+      }
+      else {
+        y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
+        document.getElementById("yousend").innerHTML = "Tôi là " + choice;
+        
+      }
+        var retoday = new Date();
+        var redate = retoday.getDate()+'/'+(retoday.getMonth()+1)+'/'+retoday.getFullYear();
+        var retime = retoday.getHours() + ":" + retoday.getMinutes() + ":" + retoday.getSeconds();
+        var redateTime = retime+' '+redate;
 
-    
-    document.getElementById("date1").innerHTML = redateTime;
+        
+        document.getElementById("date1").innerHTML = redateTime;
+  }
+
     
   }    
+  
+  function change_chat() {
+    var x = document.getElementById("isend");
+    x.className = "small mb-1 text-start text-white rounded-3 bg-white";
+    document.getElementById("isend").innerHTML = "";
+    document.getElementById("date").innerHTML = "";
+
+    var y = document.getElementById("yousend");
+    y.className = "small mb-1 text-start text-white rounded-3 bg-white";
+    document.getElementById("yousend").innerHTML = "";
+    document.getElementById("date1").innerHTML = "";
+  }
 
   return (
-             
+    
     <><h4 className="text-center mb-3">Message</h4>
     <div className="my-2">
       <div className="">
@@ -45,10 +64,21 @@ export default function Chat() {
           <div className="col">
             <div className="card" id="chat2" >
               <div className="card-header d-flex justify-content-between align-items-center p-2">
-                <h5 className="mb-0">Chat</h5>
+
+                <select className="form-select" id="choice" onChange={change_chat}>
+                  <option value="" >Chat</option>
+                  <option value="A" >A</option>
+                  <option value="B" >B</option>
+                  <option value="C" >C</option>
+                  <option value="D" >D</option>
+                  <option value="E" >E</option>
+                </select>
+                
               </div>
               
               <div className="card-body">
+                
+
                 <div className="d-flex flex-row justify-content-end mb-1">
                   <div>
                     <p className="small p-2 mb-1 text-start text-white rounded-3 bg-white" id="isend">
