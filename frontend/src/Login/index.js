@@ -20,7 +20,7 @@ function Login() {
     axios.post("http://localhost:4000/user/login", request).then((respond) => {
       if (respond.data.user) {
         localStorage.setItem('user', respond.data.user)
-        nav("/");
+        nav("/managetask");
       } else {
         setshowerr(true)
       }
