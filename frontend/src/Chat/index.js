@@ -1,49 +1,89 @@
 import React from 'react'
 
 export default function Chat() {
+  function send() {
+    var message = document.getElementById("mess").value;
+    document.getElementById("mess").value = "";
+    // Send
+    var x = document.getElementById("isend");
+    x.className = "small p-2 mb-1 text-start text-white rounded-3 bg-primary";
+    document.getElementById("isend").innerHTML = message;
+    // Day
+   var today = new Date();
+   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   var dateTime = time+' '+date;
+
+   document.getElementById("date").innerHTML = dateTime;
+  
+   var y = document.getElementById("yousend");
+   if (message == "!task"){
+    y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
+    document.getElementById("yousend").innerHTML = "Hiện tại không có nhiệm vụ !";
+   }
+   else {
+    y.className = "small p-2 mb-1 text-start text-white rounded-3 bg-secondary";
+    document.getElementById("yousend").innerHTML = "!task: Xem số nhiệm vụ. <br> !MCP: Xem danh sách MCP. <br> !MCP[number]: Xem capacity.";
+    
+   }
+    var retoday = new Date();
+    var redate = retoday.getDate()+'/'+(retoday.getMonth()+1)+'/'+retoday.getFullYear();
+    var retime = retoday.getHours() + ":" + retoday.getMinutes() + ":" + retoday.getSeconds();
+    var redateTime = retime+' '+redate;
+
+    
+    document.getElementById("date1").innerHTML = redateTime;
+    
+  }    
+
   return (
+             
     <><h4 className="text-center mb-3">Message</h4>
     <div className="my-2">
       <div className="">
         <div className="row d-flex justify-content-center">
           <div className="col">
-            <div className="card" id="chat2">
+            <div className="card" id="chat2" >
               <div className="card-header d-flex justify-content-between align-items-center p-2">
                 <h5 className="mb-0">Chat</h5>
               </div>
+              
               <div className="card-body">
                 <div className="d-flex flex-row justify-content-end mb-1">
                   <div>
-                    <p className="small p-2 mb-1 text-white rounded-3 bg-primary">
-                      Hello, i am Duc
+                    <p className="small p-2 mb-1 text-start text-white rounded-3 bg-white" id="isend">
                     </p>
-                    <p className="small mb-1 rounded-3 text-muted d-flex justify-content-end">
-                      00:11
+                    <p id="date"  className="small mb-1 rounded-3 text-muted d-flex justify-content-end">
                     </p>
                   </div>
                 </div>
 
-                <div className="d-flex flex-row justify-content-start mb-1">
+                <div className="d-flex flex-row justify-content-start mb-1" >
+                  
                   <div>
-                    <p className="small p-2 mb-1 rounded-3 bg-warning">
-                      Hi, i am Duc
-                    </p>
-                    <p className="small mb-1 rounded-3 text-muted">
-                      00:13
+                  <span>
+                  
+                    <p className="small p-2 mb-1 rounded-3 bg-white" id="yousend">
+                    
+                      </p>
+                  </span>
+                    
+                    <p id="date1" className="small mb-1 rounded-3 text-muted">
                     </p>
                   </div>
+                  
+                    
                 </div>
 
-                <div className="d-flex flex-row justify-content-end">
+                {/* <div className="d-flex flex-row justify-content-start" >
                   <div>
                     <p className="small p-2 mb-1 text-white rounded-3 bg-primary">
                       Okay
                     </p>
-                    <p className="small mb-1 rounded-3 text-muted d-flex justify-content-end">
-                      00:15
+                    <p id="hvn" className="small mb-1 rounded-3 text-muted d-flex justify-content-end">
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="card-footer text-muted d-flex justify-content-start align-items-center p-2">
                 <img
@@ -55,14 +95,26 @@ export default function Chat() {
                 <input
                   type="text"
                   className="form-control"
-                  id="exampleFormControlInput1"
+                  id="mess"
                   placeholder="Type message"
                 />
+                <button className="btn btn-danger" type="button" onClick={send}>Send</button>   
+                
               </div>
+              
             </div>
           </div>
         </div>
       </div>
-    </div></>
+      
+      
+
+    </div>
+    
+    </>
+    
   )
+  
+  
 }
+
