@@ -128,7 +128,7 @@ const Nav = () => {
                 <li>
                   <a
                     className="dropdown-item"
-                    href="index.php?page=admin&controller=login&action=logout"
+                    href="/"
                   >
                     Logout
                   </a>
