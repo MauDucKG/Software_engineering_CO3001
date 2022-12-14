@@ -31,11 +31,7 @@ function Login() {
     <MDBContainer fluid className="p-3 my-5">
       <MDBRow>
         <MDBCol col="10" md="6">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-            class="img-fluid"
-            alt="Phone image"
-          />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpsNyZFGHTTYalW3qqVHheZytDbRA4rqyfQ&usqp=CAU" class="img-fluid" width = "80%" height = "auto" alt="Phone image" />
         </MDBCol>
 
         <MDBCol col="4" md="6">

@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const taskRouter = require('./task/task.router')
 const userRouter = require('./user/user.router')
+const Msg = require("./message/message.model");
+const msgRouter = require('./message/message.router')
 const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 const cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,7 +20,20 @@ mongoose
   .then(() => {
     console.log("connected");
   })
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)); 
+io.on("connection", (socket) => {
+  socket.on("message", ({ message, name }) => {
+    const channel = "message";
+    const message_save = new Msg({
+      msg: message,
+      user: name,
+      channel: channel,
+    });
+    message_save.save().then(() => {
+      io.emit("message", { name, message });
+    });
+  });
+});
 
 http.listen(4000, function () {
   console.log("listening on port 4000");
@@ -26,3 +42,4 @@ http.listen(4000, function () {
 app.use(cors());
 app.use('/task', taskRouter);
 app.use('/user', userRouter);
+app.use('/msg', msgRouter);

@@ -43,7 +43,8 @@
     "mdb-react-ui-kit": "^5.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-router-dom": "^6.4.3"
+    "react-router-dom": "^6.4.3",
+    "socket.io-client": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
