@@ -2,6 +2,7 @@ import "./index.css";
 import * as React from "react";
 import axios from "axios";
 import Chat from "../Chat";
+import Chat from "../Chat";
 import { useEffect, useState } from "react";
 import { createElement, extend } from "@syncfusion/ej2-base";
 import {
