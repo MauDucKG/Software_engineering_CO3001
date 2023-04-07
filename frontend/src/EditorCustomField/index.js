@@ -132,11 +132,11 @@ function EditorCustomField() {
       </div>
       <hr className="mt-0" />
       <div className="row">
-        <div className="col-9">
+        <div className="col-lg-9 col-12 mb-2">
           <div className="control-wrapper">
             <ScheduleComponent
               height="500px"
-              selectedDate={new Date(2021, 1, 15)}
+              selectedDate={new Date()}
               ref={(t) => (scheduleObj = t)}
               eventSettings={{
                 dataSource: data,
@@ -174,7 +174,7 @@ function EditorCustomField() {
             </ScheduleComponent>
           </div>
         </div>
-        <div className="col-3">
+        <div className="col-lg-3 col-12">
           <Chat/>
         </div>
       </div>
